@@ -57,22 +57,22 @@ class _SplashScreenState extends State<SplashScreen> {
             ],
           ),
         ),
-        Positioned(
-            left: 0,
-            right: 0,
-            bottom: 45,
-            child: Container(
-              alignment: Alignment.center,
-              child: Text(
-                'Przywiewam dane...',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.lato(
-                    textStyle: const TextStyle(
-                        fontSize: 18.0,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w300)),
-              ),
-            ))
+        // Positioned(
+        //     left: 0,
+        //     right: 0,
+        //     bottom: 45,
+        //     child: Container(
+        //       alignment: Alignment.center,
+        //       child: Text(
+        //         'Przywiewam dane...',
+        //         textAlign: TextAlign.center,
+        //         style: GoogleFonts.lato(
+        //             textStyle: const TextStyle(
+        //                 fontSize: 18.0,
+        //                 color: Colors.white,
+        //                 fontWeight: FontWeight.w300)),
+        //       ),
+        //     ))
       ]),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
@@ -125,15 +125,20 @@ class _SplashScreenState extends State<SplashScreen> {
       showDialog(
           context: context,
           builder: (BuildContext context) {
-            return AlertDialog(
-              content: Row(
-                children: [
-                  const CircularProgressIndicator(),
-                  Container(
-                      margin: EdgeInsets.only(left: 7),
-                      child: Text("Pobieram dane...")),
-                ],
-              ),
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                AlertDialog(
+                  content: Row(
+                    children: [
+                      const CircularProgressIndicator(),
+                      Container(
+                          margin: EdgeInsets.only(left: 7),
+                          child: Text("Przywiewam dane...")),
+                    ],
+                  ),
+                ),
+              ],
             );
           });
       Geolocator.getCurrentPosition(
