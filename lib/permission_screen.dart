@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather/weather.dart';
-import 'package:weather_app/MyHomePage.dart';
-import 'package:weather_app/SplashScreen.dart';
+import 'package:weather_app/my_home_page.dart';
+import 'package:weather_app/splash_screen.dart';
 
 import 'main.dart';
 

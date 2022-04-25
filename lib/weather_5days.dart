@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/date_symbol_data_local.dart';
-
 import 'package:intl/intl.dart';
 import 'package:weather/weather.dart';
 
@@ -17,7 +16,6 @@ class _Weather5daysState extends State<Weather5days> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // backgroundColor: Colors.deepPurple[500],
         body: Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -75,8 +73,6 @@ class _Weather5daysState extends State<Weather5days> {
                               ),
                             ],
                           ),
-                          //1 kolumna w rzedzie
-
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.only(top: 30.0),
@@ -115,8 +111,6 @@ class _Weather5daysState extends State<Weather5days> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        // Text(
-                                        //     '${widget.weather5d[index].weatherDescription}'),
                                         Text(
                                           'Wilgotność:',
                                           textAlign: TextAlign.center,
@@ -168,7 +162,6 @@ class _Weather5daysState extends State<Weather5days> {
                                   ]),
                             ),
                           ),
-
                           Padding(
                             padding: const EdgeInsets.all(5.0),
                             child: Column(

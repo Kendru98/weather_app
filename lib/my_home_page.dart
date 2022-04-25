@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather/weather.dart';
 import 'package:weather_app/air_screen.dart';
-import 'package:weather_app/SplashScreen.dart';
-import 'package:weather_app/WeatherScreen.dart';
+import 'package:weather_app/splash_screen.dart';
+import 'package:weather_app/weather_screen.dart';
 
 import 'weather_5days.dart';
 
@@ -24,7 +24,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    //przekazuje zmienna w initstate inaczej sie nie da
     screens = [
       AirScreen(air: widget.air),
       WeatherScreen(weather: widget.weather, weather5d: widget.weather5d),
@@ -41,7 +40,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(
-        //zachowanie stanu ekranow przy ich zmianie
         index: _currentIndex,
         children: screens,
       ),
@@ -64,12 +62,9 @@ class _MyHomePageState extends State<MyHomePage> {
               activeIcon: Image.asset("icons/cloud-checked.png"),
               label: 'Pogoda'),
           const BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_month_sharp),
-              //activeIcon: Image.asset("icons/cloud-checked.png"),
-              label: 'Pogoda na 5 dni'),
+              icon: Icon(Icons.calendar_month_sharp), label: 'Pogoda na 5 dni'),
         ],
       ),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
