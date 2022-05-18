@@ -91,7 +91,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.push(context,
           MaterialPageRoute(builder: ((context) => PermissionScreen())));
     } else {
-      SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+      SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
         executeOnceAfterBuild();
       });
     }
@@ -106,14 +106,14 @@ class _SplashScreenState extends State<SplashScreen> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Włącz lokalizację aby pobrać dane'),
+              title: const Text('Włącz lokalizację aby pobrać dane'),
               actions: [
                 TextButton(
                     onPressed: () {
                       buttonclicked = true;
                       Navigator.of(context).pop();
                     },
-                    child: Text('Ok'))
+                    child: const Text('Ok'))
               ],
             );
           });
@@ -133,8 +133,8 @@ class _SplashScreenState extends State<SplashScreen> {
                     children: [
                       const CircularProgressIndicator(),
                       Container(
-                          margin: EdgeInsets.only(left: 7),
-                          child: Text("Przywiewam dane...")),
+                          margin: const EdgeInsets.only(left: 7),
+                          child: const Text("Przywiewam dane...")),
                     ],
                   ),
                 ),
@@ -144,7 +144,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Geolocator.getCurrentPosition(
               desiredAccuracy: LocationAccuracy.lowest,
               forceAndroidLocationManager: true,
-              timeLimit: Duration(seconds: 5))
+              timeLimit: const Duration(seconds: 5))
           .then((value) => {loadLocationData(value)})
           .onError((error, stackTrace) => {
                 Geolocator.getLastKnownPosition(
@@ -171,7 +171,7 @@ class _SplashScreenState extends State<SplashScreen> {
     log(response.body.toString());
 
     Map<String, dynamic> jsonBody = jsonDecode(response.body);
-    AirQuality aq = new AirQuality(jsonBody);
+    AirQuality aq = AirQuality(jsonBody);
     Navigator.push(
         context,
         MaterialPageRoute(
